@@ -43,3 +43,34 @@ page {
   transform: translateY(-2rpx);
   box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
 }
+
+/* 在现有样式底部添加 */
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_2878796_yxjqe0qh6j.woff2') format('woff2'),
+       url('//at.alicdn.com/t/font_2878796_yxjqe0qh6j.woff') format('woff'),
+       url('//at.alicdn.com/t/font_2878796_yxjqe0qh6j.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-record:before {
+  content: "\e6e5";
+}
+
+.icon-history:before {
+  content: "\e6e6";
+}
+
+.icon-friend:before {
+  content: "\e6e7";
+}
+
+.icon-stats:before {
+  content: "\e6e8";
+}

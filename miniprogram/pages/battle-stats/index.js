@@ -81,7 +81,7 @@ Page({
       }
 
       const relation = relationships[0];
-      const stats = JSON.parse(relation.relationships || '{}');
+      const stats = relation.relationships || {};
       
       // 转换统计数据为展示格式
       const battleStats = await this.formatBattleStats(stats);
@@ -92,7 +92,7 @@ Page({
       });
 
     } catch (err) {
-      console.error('获��对战统计失败', err);
+      console.error('获取对战统计失败', err);
       wx.showToast({
         title: '获取统计失败',
         icon: 'error'

@@ -11,7 +11,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "小程序",
+    "navigationBarTitleText": "我和麻友们",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

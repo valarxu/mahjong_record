@@ -1,74 +1,79 @@
 /**index.wxss**/
 
 page {
-  /* padding-top: 54rpx; */
-  padding-bottom: 60rpx;
-  background-color: #fff;
+  background-color: #f0f9f0;
 }
 
 .container {
   padding: 40rpx;
-}
-
-.user-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 60rpx;
+  gap: 60rpx;
 }
 
-.avatar {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
-  margin-bottom: 20rpx;
-}
-
-.nickname {
-  font-size: 32rpx;
-  color: #333;
-}
-
-.btn-container {
+.homepage-image {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.btn-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 30rpx;
+  padding: 0 20rpx;
 }
 
 .btn {
-  width: 80% !important;
-  height: 88rpx;
-  line-height: 88rpx;
-  border-radius: 10rpx;
-  font-size: 32rpx;
+  height: 180rpx !important;
+  border-radius: 20rpx !important;
+  margin: 0 !important;
+  padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.emoji {
+  font-size: 48rpx;
+}
+
+.btn-text {
+  font-size: 28rpx;
 }
 
 .record-btn {
-  background: #07c160;
-  color: #fff;
+  background: #07c160 !important;
+  color: #fff !important;
 }
 
 .history-btn {
-  background: #f8f8f8;
-  color: #333;
-}
-
-/* 添加新按钮样式 */
-.add-friend-btn {
-  background: #1989fa;
-  color: #fff;
+  background: #ff9c6e !important;
+  color: #fff !important;
 }
 
 .friend-btn {
-  background: #1989fa;
-  color: #fff;
+  background: #36cfc9 !important;
+  color: #fff !important;
 }
 
 .stats-btn {
-  background: #40a9ff;
-  color: #fff;
+  background: #722ed1 !important;
+  color: #fff !important;
+}
+
+/* 按钮点击效果 */
+.btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.15);
 }

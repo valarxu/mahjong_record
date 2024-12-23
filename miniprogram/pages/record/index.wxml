@@ -13,7 +13,7 @@
       <view class="record-cell">
         <picker 
           bindchange="onSelectFriend" 
-          range="{{availableFriends}}"
+          range="{{friends}}"
           range-key="name"
           data-index="{{index}}"
         >

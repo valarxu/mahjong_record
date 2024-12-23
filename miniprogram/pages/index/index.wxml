@@ -1,14 +1,33 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="user-info">
-    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFit"></image>
-    <text class="nickname">{{userInfo.nickName}}</text>
-  </view>
+  <!-- 主图区域 -->
+  <image class="homepage-image" src="/images/homepage.jpg" mode="widthFix"></image>
   
-  <view class="btn-container">
-    <button class="btn record-btn" bindtap="onRecord">记录</button>
-    <button class="btn history-btn" bindtap="onViewHistory">查看历史</button>
-    <button class="btn friend-btn" bindtap="onFriendList">我的麻友</button>
-    <button class="btn stats-btn" bindtap="onBattleStats">对战统计</button>
+  <!-- 按钮网格 -->
+  <view class="btn-grid">
+    <button class="btn record-btn" bindtap="onRecord">
+      <view class="btn-content">
+        <text class="emoji">📝</text>
+        <text class="btn-text">记录战绩</text>
+      </view>
+    </button>
+    <button class="btn history-btn" bindtap="onViewHistory">
+      <view class="btn-content">
+        <text class="emoji">📊</text>
+        <text class="btn-text">查看历史</text>
+      </view>
+    </button>
+    <button class="btn friend-btn" bindtap="onFriendList">
+      <view class="btn-content">
+        <text class="emoji">👥</text>
+        <text class="btn-text">我的麻友</text>
+      </view>
+    </button>
+    <button class="btn stats-btn" bindtap="onBattleStats">
+      <view class="btn-content">
+        <text class="emoji">🏆</text>
+        <text class="btn-text">对战统计</text>
+      </view>
+    </button>
   </view>
 </view>
