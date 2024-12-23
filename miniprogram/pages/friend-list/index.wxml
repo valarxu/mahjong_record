@@ -1,0 +1,95 @@
+<view class="container">
+  <!-- 添加麻友表单 -->
+  <view class="add-form">
+    <view class="add-avatar" bindtap="showEmojiPicker">
+      {{currentEmoji}}
+    </view>
+    <input 
+      class="input" 
+      type="text" 
+      placeholder="请输入麻友姓名" 
+      placeholder-style="color: #999"
+      value="{{friendName}}"
+      bindinput="onInput"
+      maxlength="10"
+    />
+    <button 
+      class="add-btn {{!friendName ? 'disabled' : ''}}" 
+      bindtap="onAddFriend"
+      disabled="{{!friendName || isSubmitting}}"
+      loading="{{isSubmitting}}"
+    >
+      添加
+    </button>
+  </view>
+
+  <!-- 麻友列表 -->
+  <view class="friend-list">
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    <block wx:elif="{{friends.length > 0}}">
+      <view class="friend-item" wx:for="{{friends}}" wx:key="_id">
+        <view class="friend-info">
+          <view class="friend-avatar {{item._id === editingId ? 'editing' : ''}}" 
+                bindtap="{{item._id === editingId ? 'showEmojiPicker' : ''}}"
+                data-emoji="{{item._id === editingId ? editingEmoji : item.emoji}}">
+            {{item._id === editingId ? editingEmoji : item.emoji}}
+          </view>
+          <text wx:if="{{item._id !== editingId}}" class="friend-name">{{item.name}}</text>
+          <input
+            wx:else
+            class="edit-input"
+            value="{{editingName}}"
+            focus="{{true}}"
+            bindinput="onEditInput"
+            maxlength="10"
+          />
+        </view>
+        <view class="friend-actions">
+          <block wx:if="{{item._id !== editingId}}">
+            <text 
+              class="action-btn edit" 
+              bindtap="onEdit" 
+              data-id="{{item._id}}" 
+              data-name="{{item.name}}"
+              data-emoji="{{item.emoji}}"
+            >
+              编辑
+            </text>
+            <text 
+              class="action-btn delete" 
+              bindtap="onDelete" 
+              data-id="{{item._id}}"
+            >
+              删除
+            </text>
+          </block>
+          <block wx:else>
+            <text class="action-btn save" bindtap="onSave">保存</text>
+            <text class="action-btn cancel" bindtap="onCancelEdit">取消</text>
+          </block>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty">
+      <view class="empty-text">还没有添加麻友</view>
+    </view>
+  </view>
+</view>
+
+<!-- Emoji选择器 -->
+<view class="emoji-picker {{showEmojiPicker ? 'show' : ''}}" bindtap="onEmojiPickerClose">
+  <view class="emoji-content" catchtap="stopPropagation">
+    <view class="emoji-title">选择头像</view>
+    <view class="emoji-grid">
+      <view class="emoji-item {{emoji === (isEditing ? editingEmoji : currentEmoji) ? 'selected' : ''}}" 
+            wx:for="{{animalEmojis}}" 
+            wx:key="*this"
+            wx:for-item="emoji"
+            bindtap="onSelectEmoji"
+            data-emoji="{{emoji}}"
+      >
+        {{emoji}}
+      </view>
+    </view>
+  </view>
+</view>

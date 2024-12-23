@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="user-list">
+    <view 
+      class="user-item {{expandedUserId === friend._id ? 'expanded' : ''}}"
+      wx:for="{{friends}}" 
+      wx:key="_id"
+      wx:for-item="friend"
+    >
+      <view class="card-header" bindtap="onToggleUser" data-userid="{{friend._id}}">
+        <view class="user-info">
+          <view class="user-avatar">{{friend.emoji}}</view>
+          <view class="user-details">
+            <text class="user-name">{{friend.name}}</text>
+            <view class="user-stats">
+              <text class="stat-item win">胜:{{friend.winCount}}</text>
+              <text class="stat-item lose">负:{{friend.loseCount}}</text>
+              <text class="stat-item score {{friend.totalScore >= 0 ? 'positive' : 'negative'}}">
+                总分:{{friend.totalScore}}
+              </text>
+            </view>
+          </view>
+        </view>
+        <view class="expand-text">{{expandedUserId === friend._id ? '收起' : '展开'}}</view>
+      </view>
+
+      <!-- 对战统计内容 -->
+      <view class="stats-content {{expandedUserId === friend._id ? 'show' : ''}}">
+        <view class="stats-list">
+          <view class="stats-item" wx:for="{{battleStats}}" wx:key="id" wx:for-item="stat">
+            <view class="battle-users">
+              <text class="current-user">{{friend.name}}</text>
+              <text class="vs">VS</text>
+              <text class="opponent-user">{{stat.name}}</text>
+            </view>
+            <view class="battle-stats">
+              <view class="stats-numbers">{{stat.winCount}}胜{{stat.drawCount}}平{{stat.loseCount}}负</view>
+              <view class="progress-bar">
+                <view class="progress win" style="width:{{stat.winPercent + '%'}}"></view>
+                <view class="progress draw" style="width:{{stat.drawPercent + '%'}}"></view>
+                <view class="progress lose" style="width:{{stat.losePercent + '%'}}"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

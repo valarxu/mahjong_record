@@ -1,0 +1,7 @@
+<view class="container">
+  <view class="auth-container">
+    <view class="title">欢迎使用</view>
+    <view class="desc">需要获取您的用户信息</view>
+    <button class="auth-btn" bindtap="getUserProfile">授权登录</button>
+  </view>
+</view> 
