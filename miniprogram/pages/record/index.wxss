@@ -30,6 +30,7 @@
   padding: 20rpx 0;
   border-bottom: 1rpx solid #f5f5f5;
   align-items: center;
+  column-gap: 6rpx;
 }
 
 .record-cell {
@@ -42,7 +43,6 @@
   padding: 12rpx 20rpx;
   background: #f7f7f7;
   border-radius: 8rpx;
-  color: #333;
 }
 
 .picker.placeholder {
@@ -51,7 +51,7 @@
 
 .score-input {
   width: 120rpx;
-  height: 64rpx;
+  height: 58rpx;
   background: #f7f7f7;
   border-radius: 8rpx;
   padding: 0 20rpx;
@@ -165,4 +165,22 @@
 .submit-btn[disabled] {
   background: #e7e7e7;
   color: #999;
+}
+
+/* 胜负类型的颜色 */
+.type-win {
+  color: #34a853;  /* Google 绿色 */
+}
+
+.type-lose {
+  color: #ea4335;  /* Google 红色 */
+}
+
+/* 分数输入框的颜色 */
+.score-input.win {
+  color: #34a853;
+}
+
+.score-input.lose {
+  color: #ea4335;
 } 

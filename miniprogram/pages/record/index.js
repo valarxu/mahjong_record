@@ -133,7 +133,7 @@ Page({
 
   // 检查是否可以提交
   checkCanSubmit() {
-    const { records } = this.data;
+    const { records, totalScore } = this.data;
     
     // 检查是否所有必填字段都已填写
     const isComplete = records.length > 0 && records.every(record => 
@@ -147,8 +147,11 @@ Page({
     const selectedIds = records.map(r => r.friendId).filter(id => id);
     const hasDuplicate = selectedIds.length !== new Set(selectedIds).size;
 
+    // 检查总分是否为0
+    const isBalanced = totalScore === 0;
+
     this.setData({ 
-      canSubmit: isComplete && !hasDuplicate
+      canSubmit: isComplete && !hasDuplicate && isBalanced
     });
   },
 

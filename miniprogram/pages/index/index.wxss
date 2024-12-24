@@ -53,22 +53,22 @@ page {
 }
 
 .record-btn {
-  background: #07c160 !important;
+  background: #34a853 !important;
   color: #fff !important;
 }
 
 .history-btn {
-  background: #ff9c6e !important;
+  background: #4285f4 !important;
   color: #fff !important;
 }
 
 .friend-btn {
-  background: #36cfc9 !important;
+  background: #fbbc05 !important;
   color: #fff !important;
 }
 
 .stats-btn {
-  background: #722ed1 !important;
+  background: #ea4335 !important;
   color: #fff !important;
 }
 
@@ -76,4 +76,11 @@ page {
 .btn:active {
   transform: scale(0.98);
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 添加图标样式 */
+.btn-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 8rpx;
 }

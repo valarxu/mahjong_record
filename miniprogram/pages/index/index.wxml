@@ -7,25 +7,25 @@
   <view class="btn-grid">
     <button class="btn record-btn" bindtap="onRecord">
       <view class="btn-content">
-        <text class="emoji">📝</text>
+        <image class="btn-icon" src="/images/animals/可达鸭.svg" mode="aspectFit"></image>
         <text class="btn-text">记录战绩</text>
       </view>
     </button>
     <button class="btn history-btn" bindtap="onViewHistory">
       <view class="btn-content">
-        <text class="emoji">📊</text>
+        <image class="btn-icon" src="/images/animals/哈士奇.svg" mode="aspectFit"></image>
         <text class="btn-text">查看历史</text>
       </view>
     </button>
     <button class="btn friend-btn" bindtap="onFriendList">
       <view class="btn-content">
-        <text class="emoji">👥</text>
+        <image class="btn-icon" src="/images/animals/仓鼠.svg" mode="aspectFit"></image>
         <text class="btn-text">我的麻友</text>
       </view>
     </button>
     <button class="btn stats-btn" bindtap="onBattleStats">
       <view class="btn-content">
-        <text class="emoji">🏆</text>
+        <image class="btn-icon" src="/images/animals/荷兰猪.svg" mode="aspectFit"></image>
         <text class="btn-text">对战统计</text>
       </view>
     </button>
