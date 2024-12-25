@@ -7,7 +7,7 @@
     <input 
       class="input" 
       type="text" 
-      placeholder="请输入麻友姓名" 
+      placeholder="请输入朋友姓名" 
       placeholder-style="color: #999"
       value="{{friendName}}"
       bindinput="onInput"
@@ -71,7 +71,7 @@
       </view>
     </block>
     <view wx:else class="empty">
-      <view class="empty-text">还没有添加麻友</view>
+      <view class="empty-text">请先在上方添加朋友</view>
     </view>
   </view>
 </view>

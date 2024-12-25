@@ -1,5 +1,11 @@
 <view class="container">
-  <view class="user-list">
+  <!-- 空状态提醒 -->
+  <view wx:if="{{!friends || friends.length === 0}}" class="empty-state">
+    <text class="empty-text">请先添加一个朋友</text>
+  </view>
+
+  <!-- 原有的用户列表 -->
+  <view wx:else class="user-list">
     <view 
       class="user-item {{expandedUserId === friend._id ? 'expanded' : ''}}"
       wx:for="{{friends}}" 

@@ -9,14 +9,14 @@ Page({
     editingId: '',
     editingName: '',
     editingEmoji: '',
-    userOpenId: '',
     showEmojiPicker: false,
     animalEmojis,
-    currentEmoji: getRandomEmoji(),  // 默认选择一个随机emoji
-    isEditing: false,  // 新增编辑状态标记
+    currentEmoji: getRandomEmoji(),
+    isEditing: false,
   },
 
-  onLoad() {
+  async onLoad() {
+    await this.loadFriends();
   },
 
   // 输入框内容变化
@@ -37,8 +37,14 @@ Page({
   async loadFriends() {
     this.setData({ loading: true });
     try {
+      const openId = getApp().globalData.openId;
       const db = wx.cloud.database();
+      
+      // 根据openId获取当前用户的麻友列表
       const { data } = await db.collection('friends')
+        .where({
+          _openid: openId
+        })
         .orderBy('createTime', 'desc')
         .get();
 
@@ -86,7 +92,7 @@ Page({
 
       this.setData({ 
         friendName: '',
-        currentEmoji: getRandomEmoji() // 重新随机一个emoji
+        currentEmoji: getRandomEmoji()
       });
       this.loadFriends();
 
@@ -223,10 +229,17 @@ Page({
         if (res.confirm) {
           try {
             const db = wx.cloud.database();
-            // 先检查是否是自己创建的记录
-            const { data } = await db.collection('friends').doc(id).get();
+            const openId = getApp().globalData.openId;
             
-            if (!data || data._openid !== this.data.userOpenId) {
+            // 检查是否是自己的麻友
+            const { data } = await db.collection('friends')
+              .where({
+                _id: id,
+                _openid: openId
+              })
+              .get();
+            
+            if (data.length === 0) {
               wx.showToast({
                 title: '无权删除',
                 icon: 'error'

@@ -15,8 +15,12 @@ Page({
   // 加载好友列表
   async loadFriends() {
     try {
+      const openId = getApp().globalData.openId;
       const db = wx.cloud.database();
       const { data } = await db.collection('friends')
+        .where({
+          _openid: openId
+        })
         .orderBy('createTime', 'desc')
         .get();
       this.setData({ friends: data });
@@ -361,5 +365,12 @@ Page({
     } else {
       stats.drawCount++;
     }
+  },
+
+  // 跳转到添加麻友页面
+  goToAddFriend() {
+    wx.navigateTo({
+      url: '/pages/friend-list/index'
+    });
   }
 });

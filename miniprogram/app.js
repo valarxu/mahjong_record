@@ -13,22 +13,32 @@ App({
     // 检查登录状态
     this.checkLogin();
   },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openId: null
   },
-  checkLogin: function() {
-    // 获取登录状态
-    wx.getStorage({
-      key: 'userInfo',
-      success: (res) => {
-        this.globalData.userInfo = res.data;
-      },
-      fail: () => {
+
+  checkLogin: async function() {
+    try {
+      // 先从缓存获取用户信息和openId
+      const userInfo = wx.getStorageSync('userInfo');
+      const openId = wx.getStorageSync('openId');
+
+      if (userInfo && openId) {
+        this.globalData.userInfo = userInfo;
+        this.globalData.openId = openId;
+      } else {
         // 未找到登录信息,需要重新登录
         wx.redirectTo({
           url: '/pages/auth/index'
         });
       }
-    });
+    } catch (err) {
+      console.error('检查登录状态失败', err);
+      wx.redirectTo({
+        url: '/pages/auth/index'
+      });
+    }
   }
 });

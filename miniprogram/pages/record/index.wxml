@@ -1,63 +1,70 @@
 <view class="container">
-  <view class="record-list">
-    <!-- 表头 -->
-    <view class="record-header">
-      <view class="header-item">麻友</view>
-      <view class="header-item">类型</view>
-      <view class="header-item">分数</view>
-      <view class="header-item">操作</view>
-    </view>
-
-    <!-- 记录列表 -->
-    <view class="record-item" wx:for="{{records}}" wx:key="id">
-      <view class="record-cell">
-        <picker 
-          bindchange="onSelectFriend" 
-          range="{{friends}}"
-          range-key="name"
-          data-index="{{index}}"
-        >
-          <view class="picker {{item.friendName ? '' : 'placeholder'}}">
-            {{item.friendName || '选择麻友'}}
-          </view>
-        </picker>
-      </view>
-      <view class="record-cell">
-        <picker 
-          bindchange="onSelectType" 
-          range="{{types}}"
-          data-index="{{index}}"
-          value="{{types.indexOf(item.type)}}"
-        >
-          <view class="picker {{item.type === '胜' ? 'type-win' : 'type-lose'}}">
-            {{item.type}}
-          </view>
-        </picker>
-      </view>
-      <view class="record-cell">
-        <input 
-          class="score-input {{item.type === '胜' ? 'win' : 'lose'}}"
-          type="digit" 
-          value="{{item.score}}"
-          placeholder="输入分数"
-          bindinput="onInputScore"
-          data-index="{{index}}"
-          maxlength="11"
-        />
-      </view>
-      <view class="record-cell">
-        <view class="delete-btn" bindtap="deleteRecord" data-index="{{index}}">删除</view>
-      </view>
-    </view>
-
-    <!-- 添加按钮 -->
-    <view class="add-btn" bindtap="addRecord">
-      <text class="add-icon">+</text>
-      <text>添加麻友</text>
-    </view>
+  <!-- 空状态提醒 -->
+  <view wx:if="{{!friends || friends.length === 0}}" class="empty-state">
+    <text class="empty-text">请先添加一个朋友</text>
   </view>
 
-  <!-- 底部操作区 -->
+  <!-- 原有的记录列表 -->
+  <block wx:else>
+    <view class="record-list">
+      <!-- 表头 -->
+      <view class="record-header">
+        <view class="header-item">成员</view>
+        <view class="header-item">类型</view>
+        <view class="header-item">分数</view>
+        <view class="header-item">操作</view>
+      </view>
+
+      <!-- 记录列表 -->
+      <view class="record-item" wx:for="{{records}}" wx:key="id">
+        <view class="record-cell">
+          <picker 
+            bindchange="onSelectFriend" 
+            range="{{friends}}"
+            range-key="name"
+            data-index="{{index}}"
+          >
+            <view class="picker {{item.friendName ? '' : 'placeholder'}}">
+              {{item.friendName || '选择成员'}}
+            </view>
+          </picker>
+        </view>
+        <view class="record-cell">
+          <picker 
+            bindchange="onSelectType" 
+            range="{{types}}"
+            data-index="{{index}}"
+            value="{{types.indexOf(item.type)}}"
+          >
+            <view class="picker {{item.type === '胜' ? 'type-win' : 'type-lose'}}">
+              {{item.type}}
+            </view>
+          </picker>
+        </view>
+        <view class="record-cell">
+          <input 
+            class="score-input {{item.type === '胜' ? 'win' : 'lose'}}"
+            type="digit" 
+            value="{{item.score}}"
+            placeholder="输入分数"
+            bindinput="onInputScore"
+            data-index="{{index}}"
+            maxlength="11"
+          />
+        </view>
+        <view class="record-cell">
+          <view class="delete-btn" bindtap="deleteRecord" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+
+      <!-- 添加按钮 -->
+      <view class="add-btn" bindtap="addRecord">
+        <text class="add-icon">+</text>
+        <text>添加成员</text>
+      </view>
+    </view>
+
+    <!-- 底部操作区 -->
   <view class="bottom-section">
     <view class="total-info">
       <text class="total-label">总计：</text>
@@ -74,4 +81,5 @@
       提交
     </button>
   </view>
+  </block>
 </view> 

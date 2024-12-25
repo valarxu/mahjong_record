@@ -13,8 +13,13 @@ Page({
   async loadFriends() {
     try {
       const db = wx.cloud.database();
-      // 获取好友列表
+      const openId = getApp().globalData.openId;
+      
+      // 获取当前用户的好友列表
       const { data: friends } = await db.collection('friends')
+        .where({
+          _openid: openId
+        })
         .orderBy('createTime', 'desc')
         .get();
 
@@ -92,7 +97,7 @@ Page({
       });
 
     } catch (err) {
-      console.error('获取对战统计失败', err);
+      console.error('获取对战���计失败', err);
       wx.showToast({
         title: '获取统计失败',
         icon: 'error'
@@ -123,5 +128,12 @@ Page({
     }
 
     return formattedStats;
+  },
+
+  // 跳转到添加麻友页面
+  goToAddFriend() {
+    wx.navigateTo({
+      url: '/pages/friend-list/index'
+    });
   }
 }); 
