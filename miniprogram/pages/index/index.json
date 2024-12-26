@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "我和朋友的计分器",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }
