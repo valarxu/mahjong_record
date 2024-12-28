@@ -20,7 +20,7 @@
     <button class="btn friend-btn" bindtap="onFriendList">
       <view class="btn-content">
         <image class="btn-icon" src="/images/animals/仓鼠.svg" mode="aspectFit"></image>
-        <text class="btn-text">我的朋友</text>
+        <text class="btn-text">我的伙伴</text>
       </view>
     </button>
     <button class="btn stats-btn" bindtap="onBattleStats">

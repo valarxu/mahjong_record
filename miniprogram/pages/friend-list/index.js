@@ -53,7 +53,7 @@ Page({
         loading: false
       });
     } catch (err) {
-      console.error('获取麻友列表失败', err);
+      console.error('获取伙伴列表失败', err);
       wx.showToast({
         title: '获取列表失败',
         icon: 'error'
@@ -67,7 +67,7 @@ Page({
     const friendName = this.data.friendName.trim();
     if (!friendName) {
       wx.showToast({
-        title: '请输入麻友姓名',
+        title: '请输入伙伴姓名',
         icon: 'none'
       });
       return;
@@ -224,7 +224,7 @@ Page({
     const { id } = e.currentTarget.dataset;
     wx.showModal({
       title: '确认删除',
-      content: '确定要删除这个麻友吗？',
+      content: '确定要删除这个伙伴吗？',
       success: async (res) => {
         if (res.confirm) {
           try {

@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 空状态提醒 -->
   <view wx:if="{{!friends || friends.length === 0}}" class="empty-state">
-    <text class="empty-text">请先添加一个朋友</text>
+    <text class="empty-text">请先添加一个伙伴</text>
   </view>
 
   <!-- 原有的记录列表 -->

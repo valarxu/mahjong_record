@@ -40,7 +40,7 @@ Page({
   // 添加转发功能
   onShareAppMessage() {
     return {
-      title: '麻将计分器',
+      title: '计分器',
       path: '/pages/index/index',
       imageUrl: '/images/homepage.jpg'  // 可以添加一张分享图片
     };
@@ -49,7 +49,7 @@ Page({
   // 添加分享到朋友圈
   onShareTimeline() {
     return {
-      title: '麻将计分器',
+      title: '计分器',
       query: '',
       imageUrl: '/images/homepage.jpg'  // 可以添加一张分享图片
     };
