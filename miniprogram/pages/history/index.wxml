@@ -2,7 +2,8 @@
   <!-- 记录列表 -->
   <view class="record-list">
     <view class="record-item" wx:for="{{records}}" wx:key="_id">
-      <view class="record-header">
+      <view class="record-header {{selectMode ? 'with-checkbox' : ''}}">
+        <checkbox wx:if="{{selectMode}}" checked="{{item.checked}}" data-id="{{item._id}}" bindtap="toggleSelect" />
         <text class="record-time">{{item.createTime}}</text>
       </view>
       <view class="record-details">
@@ -25,5 +26,32 @@
   <!-- 空状态 -->
   <view wx:if="{{!loading && records.length === 0}}" class="empty-state">
     暂无记录
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="footer-bar">
+    <view wx:if="{{!selectMode}}" class="footer-btn" bindtap="enterSelectMode">合并统计</view>
+    <view wx:else class="footer-btn-group">
+      <view class="footer-btn primary" bindtap="calculateStats">查看统计</view>
+      <view class="footer-btn cancel" bindtap="cancelSelectMode">取消</view>
+    </view>
+  </view>
+  
+  <!-- 统计结果弹窗 -->
+  <view wx:if="{{showStats}}" class="stats-modal-mask" bindtap="closeStats">
+    <view class="stats-modal" catchtap="preventClose">
+      <view class="stats-modal-header">
+        <text class="stats-modal-title">统计结果</text>
+        <text class="stats-modal-close" bindtap="closeStats">×</text>
+      </view>
+      <view class="stats-modal-content">
+        <view class="stats-modal-item" wx:for="{{statsResult}}" wx:key="id">
+          <view class="stats-modal-name">{{item.friendName}}</view>
+          <view class="stats-modal-score {{item.totalScore >= 0 ? 'positive' : 'negative'}}">
+            {{item.totalScore >= 0 ? '+' : ''}}{{item.totalScore}}
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view> 
