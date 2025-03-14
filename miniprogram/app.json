@@ -5,7 +5,8 @@
     "pages/friend-list/index",
     "pages/record/index",
     "pages/history/index",
-    "pages/battle-stats/index"
+    "pages/battle-stats/index",
+    "pages/chatBot/chatBot"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

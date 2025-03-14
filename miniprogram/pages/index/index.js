@@ -9,6 +9,14 @@ Page({
     this.setData({ userInfo });
   },
 
+  // 主图区域
+  goAgent() {
+    console.log("点击")
+    wx.navigateTo({
+      url: '/pages/chatBot/chatBot',
+    })
+  },
+
   // 记录按钮点击事件
   onRecord() {
     wx.navigateTo({

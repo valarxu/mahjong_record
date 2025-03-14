@@ -29,5 +29,11 @@
         <text class="btn-text">对战统计</text>
       </view>
     </button>
+    <button class="btn record-btn" bindtap="goAgent">
+      <view class="btn-content">
+        <image class="btn-icon" src="/images/animals/可达鸭.svg" mode="aspectFit"></image>
+        <text class="btn-text">AI</text>
+      </view>
+    </button>
   </view>
 </view>
