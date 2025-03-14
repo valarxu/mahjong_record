@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 主图区域 -->
-  <image class="homepage-image" src="/images/homepage.jpg" mode="widthFix"></image>
+  <image class="homepage-image" src="/images/homepage.jpg" mode="widthFix" bindtap="goAgent"></image>
   
   <!-- 按钮网格 -->
   <view class="btn-grid">
@@ -27,12 +27,6 @@
       <view class="btn-content">
         <image class="btn-icon" src="/images/animals/荷兰猪.svg" mode="aspectFit"></image>
         <text class="btn-text">对战统计</text>
-      </view>
-    </button>
-    <button class="btn record-btn" bindtap="goAgent">
-      <view class="btn-content">
-        <image class="btn-icon" src="/images/animals/可达鸭.svg" mode="aspectFit"></image>
-        <text class="btn-text">AI</text>
       </view>
     </button>
   </view>
