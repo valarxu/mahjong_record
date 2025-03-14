@@ -16,7 +16,7 @@ Page({
       modelProvider: "deepseek", // 大模型服务厂商
       quickResponseModel: "deepseek-v3", // 快速响应模型 （混元 turbo, gpt4 turbo版，deepseek v3等）
       logo: "", // model 头像
-      welcomeMsg: "欢迎语", // model 欢迎语
+      welcomeMsg: "阿吉欢迎你", // model 欢迎语
     },
   },
   /**
